@@ -1,4 +1,4 @@
-import 'package:admin/core/common/responsive/layouts/app_template.dart';
+import 'package:admin/features/template/app_template.dart';
 import 'package:admin/features/authentication/onboarding.dart';
 import 'package:admin/routing/routes.dart';
 import 'package:flutter/material.dart';

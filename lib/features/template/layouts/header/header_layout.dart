@@ -1,6 +1,6 @@
-import 'package:admin/core/common/widgets/containers/images/rounded_images.dart';
+import 'package:admin/core/common/widgets/images/rounded_images.dart';
 import 'package:admin/core/constants/colors.dart';
-import 'package:admin/core/constants/enums.dart';
+import 'package:admin/core/constants/images.dart';
 import 'package:admin/core/constants/sizes.dart';
 import 'package:admin/core/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +48,7 @@ class CustomHeaderLayout extends StatelessWidget
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const CustomRoundedImage(
-                imageType: ImageType.asset,
+                image: CImages.user,
                 width: 40,
                 height: 40,
                 padding: 2,

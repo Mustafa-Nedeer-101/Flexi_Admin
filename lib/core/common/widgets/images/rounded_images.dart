@@ -24,7 +24,7 @@ class CustomRoundedImage extends StatelessWidget {
     this.file,
     this.margin,
     this.memoryImage,
-    required this.imageType,
+    this.imageType = ImageType.asset,
     this.overlayColor,
   });
 

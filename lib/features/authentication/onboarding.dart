@@ -1,4 +1,4 @@
-import 'package:admin/core/common/widgets/containers/containers/rounded_container.dart';
+import 'package:admin/core/common/widgets/containers/rounded_container.dart';
 import 'package:admin/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
