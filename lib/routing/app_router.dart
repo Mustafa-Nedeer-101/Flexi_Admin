@@ -11,7 +11,7 @@ class AppRouter {
 
     switch (settings.name) {
       // Onboarding
-      case Routes.onboardingScreen:
+      case Routes.appTemplate:
         return MaterialPageRoute(
           builder: (context) => CustomAppTemplate(
             desktop: const Desktop(),
