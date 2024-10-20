@@ -68,4 +68,8 @@ class CSizes {
 
   // Grid view spacing
   static const double gridViewSpacing = 16.0;
+
+  // Screen Width
+  static const double desktopWidth = 1200;
+  static const double mobileWidth = 600;
 }

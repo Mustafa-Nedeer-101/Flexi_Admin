@@ -19,3 +19,5 @@ enum PaymentMethods {
 }
 
 enum ProductType { variable, single }
+
+enum ImageType { network, memory, file, asset }

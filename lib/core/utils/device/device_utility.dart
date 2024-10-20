@@ -36,4 +36,16 @@ class UDeviceUtils {
   static double getScreenWidth(BuildContext context) {
     return MediaQuery.sizeOf(context).width;
   }
+
+  static bool isDesktopScreen(BuildContext context) {
+    return MediaQuery.sizeOf(context).width >= 1200;
+  }
+
+  static bool isTabletScreen(BuildContext context) {
+    return MediaQuery.sizeOf(context).width >= 600;
+  }
+
+  static bool isMobileScreen(BuildContext context) {
+    return MediaQuery.sizeOf(context).width < 600;
+  }
 }

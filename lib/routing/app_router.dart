@@ -1,4 +1,5 @@
-import 'package:admin/main.dart';
+import 'package:admin/features/template/app_template.dart';
+import 'package:admin/features/authentication/onboarding.dart';
 import 'package:admin/routing/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,11 @@ class AppRouter {
       // Onboarding
       case Routes.onboardingScreen:
         return MaterialPageRoute(
-          builder: (context) => const OnboardingScreen(),
+          builder: (context) => CustomAppTemplate(
+            desktop: const Desktop(),
+            tablet: const Tablet(),
+            mobile: const Mobile(),
+          ),
         );
 
       default:
