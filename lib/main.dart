@@ -28,7 +28,7 @@ class AdminApp extends StatelessWidget {
       title: 'Admin Panel',
       theme: CustomAppTheme.lightTheme,
       darkTheme: CustomAppTheme.darkTheme,
-      initialRoute: Routes.appTemplate,
+      initialRoute: Routes.login,
       onGenerateRoute: AppRouter.generateRoute,
     );
   }

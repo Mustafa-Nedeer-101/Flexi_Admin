@@ -1,3 +1,6 @@
+import 'package:admin/features/authentication/presentation/forgot_password/forgot_password.dart';
+import 'package:admin/features/authentication/presentation/logic/login.dart';
+import 'package:admin/features/authentication/presentation/reset_password/reset_password.dart';
 import 'package:admin/features/template/app_template.dart';
 import 'package:admin/features/authentication/onboarding.dart';
 import 'package:admin/routing/routes.dart';
@@ -20,6 +23,16 @@ class AppRouter {
           ),
         );
 
+      case Routes.login:
+        return MaterialPageRoute(builder: (context) => const LoginScreen());
+
+      case Routes.forgotPassword:
+        return MaterialPageRoute(
+            builder: (context) => const ForgotPasswordScreen());
+
+      case Routes.resetPassword:
+        return MaterialPageRoute(
+            builder: (context) => const ResetPasswordScreen());
       default:
         return null;
     }
