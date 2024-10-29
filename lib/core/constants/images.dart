@@ -9,8 +9,7 @@ class CImages {
   static const String lightAppLogo = "assets/logos/sign_logo_light.png";
 
   // Loaders
-  static const String loading = 'assets/images/loaders/loading.gif';
-  static const String loading2 = 'assets/images/loaders/loading_2.gif';
+  static const String loading = 'assets/images/animations/loading.gif';
 
   // Empty wishlist
   static const String emptyWishlist = 'assets/images/wishlist/wishlist.gif';

@@ -20,18 +20,9 @@ class UFullSreenLoader {
             color: dark ? CColors.dark : CColors.white,
             width: double.infinity,
             height: double.infinity,
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 150,
-                ),
-
-                // AnimatedLoaderWidget
-                CustomAnimationLoaderWidget(
-                  text: text,
-                  animation: animation,
-                )
-              ],
+            child: CustomAnimationLoaderWidget(
+              text: text,
+              animation: animation,
             ),
           ),
         );

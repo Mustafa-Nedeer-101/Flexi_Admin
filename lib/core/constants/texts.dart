@@ -1,7 +1,7 @@
 class CTexts {
   CTexts._();
 
-  // Global Texts
+// Global Texts
 // Authentication Form Texts
   static const String firstName = "First Name";
   static const String lastName = "Last Name";

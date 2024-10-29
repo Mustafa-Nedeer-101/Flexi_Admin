@@ -25,24 +25,17 @@ class CustomAnimationLoaderWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Lottie.asset(
-            //   animation,
-            //   width: MediaQuery.of(context).size.width * 0.8,)
             Image(
               image: AssetImage(animation),
-              width: MediaQuery.of(context).size.width * 0.8,
+              width: MediaQuery.of(context).size.width * 0.5,
             ),
-            const SizedBox(
-              height: CSizes.defaultSpace,
-            ),
+            const SizedBox(height: CSizes.defaultSpace),
             Text(
               text,
               style: Theme.of(context).textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(
-              height: CSizes.defaultSpace,
-            ),
+            const SizedBox(height: CSizes.defaultSpace),
             showAction
                 ? SizedBox(
                     width: 250,

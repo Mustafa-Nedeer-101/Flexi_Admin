@@ -1,6 +1,6 @@
 // List of Enums
 
-// they cannot be created inside a class
+enum AppRole { admin, user }
 
 enum TextSizes { small, medium, large }
 
@@ -14,10 +14,16 @@ enum PaymentMethods {
   mastercCard,
   creditCard,
   paystack,
-  rasorPay,
-  payTm
+  razorPay,
+  paytm
 }
 
 enum ProductType { variable, single }
 
 enum ImageType { network, memory, file, asset }
+
+enum TransactionType { buy, sell }
+
+enum ProductVisibility { published, hidden }
+
+enum MediaCategory { folders, banners, brands, categories, products, users }
