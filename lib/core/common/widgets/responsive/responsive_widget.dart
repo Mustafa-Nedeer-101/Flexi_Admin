@@ -7,7 +7,7 @@ class CustomResponsiveWidget extends StatelessWidget {
     this.desktopWidth = CSizes.desktopWidth,
     this.mobileWidth = CSizes.mobileWidth,
     required this.desktop,
-    required this.tablet,
+    this.tablet,
     required this.mobile,
   });
 
@@ -15,7 +15,7 @@ class CustomResponsiveWidget extends StatelessWidget {
   final double mobileWidth;
 
   final Widget desktop;
-  final Widget tablet;
+  final Widget? tablet;
   final Widget mobile;
 
   @override
@@ -24,7 +24,7 @@ class CustomResponsiveWidget extends StatelessWidget {
       if (constraints.maxWidth >= desktopWidth) {
         return desktop;
       } else if (constraints.maxWidth >= mobileWidth) {
-        return tablet;
+        return tablet ?? desktop;
       } else {
         return mobile;
       }

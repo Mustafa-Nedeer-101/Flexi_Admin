@@ -7,14 +7,9 @@ class CImages {
   // App logos
   static const String darkAppLogo = "assets/logos/sign_logo_dark.png";
   static const String lightAppLogo = "assets/logos/sign_logo_light.png";
-  static const String blueLogo = "assets/logos/blue.png";
 
   // Loaders
-  static const String loading = 'assets/images/loaders/loading.gif';
-  static const String loading2 = 'assets/images/loaders/loading_2.gif';
-
-  // Cart
-  static const String emptyCart = 'assets/images/cart/empty_cart.gif';
+  static const String loading = 'assets/images/animations/loading.gif';
 
   // Empty wishlist
   static const String emptyWishlist = 'assets/images/wishlist/wishlist.gif';
@@ -34,8 +29,7 @@ class CImages {
   static const String success = "assets/images/sign_up/success.PNG";
 
   // Password Configuration
-  static const String emailSent =
-      "assets/images/password_config/email-sent.PNG";
+  static const String emailSent = "assets/images/animations/email_sent.gif";
 
   // Social Media Logos
   static const String google = "assets/logos/google.JPG";
