@@ -1,6 +1,6 @@
 import 'package:admin/core/constants/colors.dart';
 import 'package:admin/core/constants/sizes.dart';
-import 'package:admin/features/template/cubit/sidebar_cubit.dart';
+import 'package:admin/features/template/presentation/cubit/sidebar/sidebar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -3,22 +3,17 @@ import 'package:admin/core/utils/errors/error_handler.dart';
 import 'package:admin/core/utils/errors/exceptions.dart';
 import 'package:admin/core/utils/errors/failure.dart';
 import 'package:admin/features/authentication/data/datasources/user_local_datasource.dart';
+import 'package:admin/features/authentication/data/datasources/user_remote_datasource.dart';
+import 'package:admin/features/authentication/data/models/user_model.dart';
+import 'package:admin/features/authentication/domain/entities/user_entity.dart';
+import 'package:admin/features/authentication/domain/repositories/user_repo.dart';
 import 'package:dartz/dartz.dart';
-
-abstract interface class UserRepo {
-  Future<Either<Failure, void>> saveUserEmailAndPassword(LoginParams params);
-  Future<Either<Failure, LoginParams>> getUserEmailAndPassword();
-  Future<Either<Failure, void>> deleteUserAndEmail();
-
-  Future<Either<Failure, void>> saveRememberMe();
-  Future<Either<Failure, bool>> isRememberMe();
-  Future<Either<Failure, void>> deleteRememberMe();
-}
 
 class UserRepoImp implements UserRepo {
   final UserLocalDatasource localDatasource;
+  final UserRemoteDatasource remoteDatasource;
 
-  UserRepoImp({required this.localDatasource});
+  UserRepoImp({required this.localDatasource, required this.remoteDatasource});
 
   @override
   Future<Either<Failure, void>> deleteRememberMe() async {
@@ -82,6 +77,31 @@ class UserRepoImp implements UserRepo {
       LoginParams params) async {
     try {
       final result = await localDatasource.saveUserEmailAndPassword(params);
+
+      return Right(result);
+    } catch (e) {
+      return Left(ErrorHandler.exceptionToFailure(e));
+    }
+  }
+
+  // Create a user record in database
+  @override
+  Future<Either<Failure, void>> createUser(UserEntity user) async {
+    try {
+      final model = UserModel.fromEntity(user);
+      final result = await remoteDatasource.createUser(model);
+
+      return Right(result);
+    } catch (e) {
+      return Left(ErrorHandler.exceptionToFailure(e));
+    }
+  }
+
+  // fetch a user record from database
+  @override
+  Future<Either<Failure, UserModel>> fetchUser(String id) async {
+    try {
+      final result = await remoteDatasource.fetchAdminDetails(id);
 
       return Right(result);
     } catch (e) {

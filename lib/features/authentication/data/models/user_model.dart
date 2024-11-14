@@ -1,54 +1,20 @@
+import 'package:admin/features/authentication/domain/entities/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:admin/core/constants/enums.dart';
-import 'package:admin/core/utils/formatters/foramtter.dart';
 
-class UserModel {
-  AppRole role;
-  DateTime? createdAt;
-  DateTime? updatedAt;
-  final String? id;
-  String firstName;
-  String lastName;
-  final String username;
-  final String email;
-  String phoneNumber;
-  String profilePicture;
-
+class UserModel extends UserEntity {
   UserModel({
-    this.role = AppRole.user,
-    this.createdAt,
-    this.updatedAt,
-    this.id,
-    this.firstName = '',
-    this.lastName = '',
-    this.username = '',
-    required this.email,
-    this.phoneNumber = '',
-    this.profilePicture = '',
+    super.role = AppRole.user,
+    super.createdAt,
+    super.updatedAt,
+    super.id,
+    super.firstName = '',
+    super.lastName = '',
+    super.username = '',
+    required super.email,
+    super.phoneNumber = '',
+    super.profilePicture = '',
   });
-
-  // Helper Functions
-  String get fullName => '$firstName $lastName';
-
-  String get formattedPhoneNumber =>
-      UFormatterUtils.formatPhoneNumber(phoneNumber);
-
-  String get formattedDate => UFormatterUtils.formatDate(createdAt);
-  String get formattedUpdatedAtDate => UFormatterUtils.formatDate(updatedAt);
-
-  static List<String> nameParts(String fullName) => fullName.split(" ");
-
-  static String generateUsername(String fullName) {
-    List<String> nameParts = fullName.split(" ");
-
-    String firstName = nameParts[0].toLowerCase();
-    String lastName = nameParts.length > 1 ? nameParts[1].toLowerCase() : '';
-
-    String camelCaseUsername = "$firstName$lastName";
-    String usernameWithPrefix = "flex_$camelCaseUsername";
-
-    return usernameWithPrefix;
-  }
 
   // return an empty model
   static UserModel empty() => UserModel(
@@ -58,7 +24,8 @@ class UserModel {
       firstName: '',
       lastName: '',
       phoneNumber: '',
-      profilePicture: '');
+      profilePicture: '',
+      role: AppRole.user);
 
   // return the Json version of the model
   Map<String, dynamic> toJson() {
@@ -73,6 +40,21 @@ class UserModel {
       'CreatedAt': createdAt,
       'UpdatedAt': updatedAt = DateTime.now()
     };
+  }
+
+  // a constructor when passed an entity
+  factory UserModel.fromEntity(UserEntity user) {
+    return UserModel(
+        email: user.email,
+        createdAt: user.createdAt,
+        firstName: user.firstName,
+        id: user.id,
+        lastName: user.lastName,
+        phoneNumber: user.phoneNumber,
+        profilePicture: user.profilePicture,
+        role: user.role,
+        updatedAt: user.updatedAt,
+        username: user.username);
   }
 
   // a constructor when data retrieved from a document

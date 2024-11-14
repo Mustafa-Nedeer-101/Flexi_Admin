@@ -1,6 +1,6 @@
-import 'package:admin/features/template/cubit/sidebar_cubit.dart';
-import 'package:admin/features/template/layouts/sidebar/side_bar_menu.dart';
-import 'package:admin/features/template/layouts/sidebar/sidebar_logo.dart';
+import 'package:admin/features/template/presentation/cubit/sidebar/sidebar_cubit.dart';
+import 'package:admin/features/template/presentation/layouts/sidebar/side_bar_menu.dart';
+import 'package:admin/features/template/presentation/layouts/sidebar/sidebar_logo.dart';
 import 'package:admin/core/constants/colors.dart';
 import 'package:admin/core/constants/sizes.dart';
 import 'package:flutter/material.dart';

@@ -5,8 +5,9 @@ import 'package:admin/features/authentication/presentation/pages/forgot_password
 import 'package:admin/features/authentication/presentation/pages/login/login.dart';
 import 'package:admin/features/authentication/presentation/pages/redirect/redirect_screen.dart';
 import 'package:admin/features/authentication/presentation/pages/reset_password/reset_password.dart';
-import 'package:admin/features/template/app_template.dart';
-import 'package:admin/features/authentication/onboarding.dart';
+import 'package:admin/features/template/presentation/app_template.dart';
+import 'package:admin/features/template/presentation/cubit/header/header_cubit.dart';
+import 'package:admin/features/template/presentation/cubit/home/home_cubit.dart';
 import 'package:admin/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,30 +21,26 @@ class AppRouter {
     switch (settings.name) {
       case Routes.redirect:
         return MaterialPageRoute(
-          builder: (context) {
-            return BlocProvider(
-              create: (context) => getIt<RedirectCubit>(),
-              child: const RedirectScreen(),
-            );
-          },
-        );
+            builder: (context) => BlocProvider(
+                create: (context) => getIt<RedirectCubit>(),
+                child: const RedirectScreen()));
 
       // Dashboard
       case Routes.dashboard:
         return MaterialPageRoute(
-          builder: (context) => CustomAppTemplate(
-            desktop: const Desktop(),
-            tablet: const Tablet(),
-            mobile: const Mobile(),
-          ),
-        );
+            builder: (context) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(create: (context) => getIt<HeaderCubit>()),
+                    BlocProvider(create: (context) => getIt<HomeCubit>()),
+                  ],
+                  child: CustomAppTemplate(),
+                ));
 
       case Routes.login:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
-                  create: (context) => getIt<LoginCubit>(),
-                  child: const LoginScreen(),
-                ));
+                create: (context) => getIt<LoginCubit>(),
+                child: const LoginScreen()));
 
       case Routes.forgotPassword:
         return MaterialPageRoute(

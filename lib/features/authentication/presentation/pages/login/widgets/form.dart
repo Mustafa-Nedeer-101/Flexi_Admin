@@ -39,7 +39,6 @@ class _FormBuilderState extends State<FormBuilder> {
                 color: Colors.blueGrey, borderRadius: BorderRadius.circular(5)),
           );
         } else {
-          print("From FutureBuilder: ${snapshot.data}");
           return LoginForm();
         }
       },
@@ -60,7 +59,6 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     email.text = context.read<LoginCubit>().email;
     password.text = context.read<LoginCubit>().password;
-    print('From Build Function: ${email.text}');
 
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {

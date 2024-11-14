@@ -30,9 +30,10 @@ class AdminApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Admin Panel',
+      themeMode: ThemeMode.light,
       theme: CustomAppTheme.lightTheme,
       darkTheme: CustomAppTheme.darkTheme,
-      initialRoute: Routes.redirect,
+      initialRoute: Routes.login,
       onGenerateRoute: AppRouter.generateRoute,
     );
   }
