@@ -12,7 +12,8 @@ class CImages {
   static const String loading = 'assets/images/animations/loading.gif';
 
   // Empty wishlist
-  static const String emptyWishlist = 'assets/images/wishlist/wishlist.gif';
+  static const String emptyList =
+      'assets/images/content/products/empty_list.png';
 
   // Order Completed
   static const String orderCompleted =

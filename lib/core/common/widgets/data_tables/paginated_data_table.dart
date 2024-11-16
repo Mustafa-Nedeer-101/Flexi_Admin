@@ -57,7 +57,7 @@ class CustomPaginatedDataTable2 extends StatelessWidget {
           // Empty Animation
           empty: const CustomAnimationLoaderWidget(
             text: 'Nothing Found',
-            animation: CImages.loading,
+            animation: CImages.emptyList,
             height: 200,
             width: 200,
           ),

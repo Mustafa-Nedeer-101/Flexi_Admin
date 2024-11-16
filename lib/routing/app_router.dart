@@ -5,9 +5,10 @@ import 'package:admin/features/authentication/presentation/pages/forgot_password
 import 'package:admin/features/authentication/presentation/pages/login/login.dart';
 import 'package:admin/features/authentication/presentation/pages/redirect/redirect_screen.dart';
 import 'package:admin/features/authentication/presentation/pages/reset_password/reset_password.dart';
-import 'package:admin/features/template/presentation/app_template.dart';
-import 'package:admin/features/template/presentation/cubit/header/header_cubit.dart';
-import 'package:admin/features/template/presentation/cubit/home/home_cubit.dart';
+import 'package:admin/features/products/presentation/cubit/products_cubit.dart';
+import 'package:admin/features/template/app_template.dart';
+import 'package:admin/features/template/cubit/header/header_cubit.dart';
+import 'package:admin/features/template/cubit/sidebar/sidebar_cubit.dart';
 import 'package:admin/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,14 +27,15 @@ class AppRouter {
                 child: const RedirectScreen()));
 
       // Dashboard
-      case Routes.dashboard:
+      case Routes.template:
         return MaterialPageRoute(
             builder: (context) => MultiBlocProvider(
                   providers: [
                     BlocProvider(create: (context) => getIt<HeaderCubit>()),
-                    BlocProvider(create: (context) => getIt<HomeCubit>()),
+                    BlocProvider(create: (context) => getIt<SidebarCubit>()),
+                    BlocProvider(create: (context) => getIt<ProductsCubit>()),
                   ],
-                  child: CustomAppTemplate(),
+                  child: const CustomAppTemplate(),
                 ));
 
       case Routes.login:
