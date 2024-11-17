@@ -73,7 +73,7 @@ class LoginForm extends StatelessWidget {
                 animation: CImages.loading);
           case LoginSuccess():
             context.pop();
-            context.pushReplacementNamed(Routes.dashboard);
+            context.pushReplacementNamed(Routes.template);
           case LoginFailure():
             context.pop();
             handleErrorState(context, state.message);

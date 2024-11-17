@@ -8,10 +8,11 @@ import 'package:admin/features/authentication/data/repositories/auth_repo.dart';
 import 'package:admin/features/authentication/data/repositories/user_repo.dart';
 import 'package:admin/features/authentication/presentation/bloc/login_cubit/login_cubit.dart';
 import 'package:admin/features/authentication/presentation/bloc/redirect_cubit/redirct_cubit.dart';
-import 'package:admin/features/template/data/datasources/products_remote_datasource.dart';
-import 'package:admin/features/template/data/repositories/products_repo.dart';
-import 'package:admin/features/template/presentation/cubit/header/header_cubit.dart';
-import 'package:admin/features/template/presentation/cubit/home/home_cubit.dart';
+import 'package:admin/features/products/data/datasources/products_remote_datasource.dart';
+import 'package:admin/features/products/data/repositories/products_repo.dart';
+import 'package:admin/features/template/cubit/header/header_cubit.dart';
+import 'package:admin/features/products/presentation/cubit/products_cubit.dart';
+import 'package:admin/features/template/cubit/sidebar/sidebar_cubit.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 
@@ -50,7 +51,9 @@ Future<void> setupDependencyInjecion() async {
       ProductsRemoteDatasourceImp(storage: getIt<FirebaseStorageManagerImp>()));
   getIt.registerSingleton<ProductsRepoImp>(
       ProductsRepoImp(datasource: getIt<ProductsRemoteDatasourceImp>()));
-  getIt.registerFactory<HomeCubit>(() => HomeCubit());
 
-  getIt.registerFactory<HeaderCubit>(() => HeaderCubit());
+  // Cubits are singleton to preserve state
+  getIt.registerSingleton<HeaderCubit>(HeaderCubit());
+  getIt.registerSingleton<SidebarCubit>(SidebarCubit());
+  getIt.registerSingleton<ProductsCubit>(ProductsCubit());
 }

@@ -14,7 +14,7 @@ class RedirectScreen extends StatelessWidget {
       listener: (context, state) {
         switch (state) {
           case RedirectAuthenticated():
-            context.pushReplacementNamed(Routes.dashboard);
+            context.pushReplacementNamed(Routes.template);
           case RedirectUnauthenticated():
             context.pushReplacementNamed(Routes.login);
           case RedirectFailure():
