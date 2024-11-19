@@ -1,4 +1,5 @@
 import 'package:admin/core/constants/sections.dart';
+import 'package:admin/features/dashboard/dashboard.dart';
 import 'package:admin/features/products/presentation/layouts/products_desktop_layout.dart';
 import 'package:admin/features/template/cubit/sidebar/sidebar_cubit.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +14,7 @@ class CustomBodyLayout extends StatelessWidget {
       builder: (context, state) {
         switch (state.activeRoute) {
           case CSections.dashboard:
-            return Container(
-              color: Colors.green,
-            );
+            return const Dashboard();
 
           case CSections.products:
             return const ProductsDesktopLayout();

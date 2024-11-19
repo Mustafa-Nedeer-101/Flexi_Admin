@@ -15,8 +15,8 @@ class CColors {
       colors: [Color(0xffff9a9e), Color(0xfffad0c4), Color(0xfffad0c0)]);
 
   // Text Colors
-  static const Color textPrimary = Color(0xFF333333);
-  static const Color textSecondary = Color(0xFF6c7570);
+  static const Color textPrimary = Color(0xFF272727);
+  static const Color textSecondary = Color(0xFF656565);
   static const Color textWhite = Colors.white;
 
   // Background Colors

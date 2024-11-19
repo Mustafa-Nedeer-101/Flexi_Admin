@@ -1,3 +1,4 @@
+import 'package:admin/core/constants/colors.dart';
 import 'package:admin/features/template/cubit/sidebar/sidebar_cubit.dart';
 import 'package:admin/features/template/widgets/body/body_layout.dart';
 import 'package:admin/features/template/widgets/header/header_layout.dart';
@@ -17,6 +18,7 @@ class CustomTabletTemplate extends StatelessWidget {
         context.read<SidebarCubit>().scaffoldKey;
 
     return Scaffold(
+        backgroundColor: CColors.primaryBackground,
         key: scaffoldKey,
         drawer: const CustomDrawerLayout(),
         appBar: const CustomHeaderLayout(),

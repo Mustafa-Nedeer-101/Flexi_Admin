@@ -36,6 +36,7 @@ dependencies:
   flutter_secure_storage: ^9.2.2
   data_table_2: ^2.5.15
   image_picker: ^1.1.2
+  fl_chart: ^0.69.0
 
 
 dev_dependencies:
