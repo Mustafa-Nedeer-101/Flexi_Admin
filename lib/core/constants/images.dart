@@ -16,8 +16,7 @@ class CImages {
       'assets/images/content/products/empty_list.png';
 
   // Order Completed
-  static const String orderCompleted =
-      'assets/images/orders/order_complete.gif';
+  static const String orders = 'assets/images/content/orders/orders.png';
 
   // Onboarding Images
   static const String onBoardingImageOne = "assets/images/onboarding/shop.gif";

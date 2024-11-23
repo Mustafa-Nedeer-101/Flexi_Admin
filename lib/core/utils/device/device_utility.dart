@@ -29,6 +29,10 @@ class UDeviceUtils {
     return viewInsets.bottom > 0;
   }
 
+  static Size screenSize(BuildContext context) {
+    return MediaQuery.sizeOf(context);
+  }
+
   static double getScreenHeight(BuildContext context) {
     return MediaQuery.sizeOf(context).height;
   }

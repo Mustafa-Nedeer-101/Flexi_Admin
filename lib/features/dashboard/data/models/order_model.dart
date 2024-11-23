@@ -1,5 +1,4 @@
 import 'package:admin/core/constants/enums.dart';
-import 'package:admin/core/utils/helpers/helper_functions.dart';
 import 'package:admin/features/dashboard/data/models/address_model.dart';
 import 'package:admin/features/dashboard/data/models/cart_item_model.dart';
 import 'package:admin/features/dashboard/domain/entities/order_entity.dart';
@@ -17,17 +16,6 @@ class OrderModel extends OrderEntity {
     super.deliveryDate,
     required super.items,
   });
-
-  String get formattedOrderDate => UHelperFunctions.getFormattedDate(orderDate);
-  String get formattedDeliveryDate => deliveryDate != null
-      ? UHelperFunctions.getFormattedDate(deliveryDate!)
-      : '';
-
-  String get orderStatusText => status == OrderStatus.delivered
-      ? 'Delivered'
-      : status == OrderStatus.shipped
-          ? 'Shipment on the way'
-          : 'Processing';
 
   Map<String, dynamic> toJson() {
     return {

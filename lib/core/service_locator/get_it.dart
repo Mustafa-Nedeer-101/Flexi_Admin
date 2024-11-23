@@ -8,6 +8,9 @@ import 'package:admin/features/authentication/data/repositories/auth_repo.dart';
 import 'package:admin/features/authentication/data/repositories/user_repo.dart';
 import 'package:admin/features/authentication/presentation/bloc/login_cubit/login_cubit.dart';
 import 'package:admin/features/authentication/presentation/bloc/redirect_cubit/redirct_cubit.dart';
+import 'package:admin/features/dashboard/data/datasources/orders_remote_datasource.dart';
+import 'package:admin/features/dashboard/data/repositories/orders_repo.dart';
+import 'package:admin/features/dashboard/presentation/cubit/orders_cubit.dart';
 import 'package:admin/features/products/data/datasources/products_remote_datasource.dart';
 import 'package:admin/features/products/data/repositories/products_repo.dart';
 import 'package:admin/features/template/cubit/header/header_cubit.dart';
@@ -57,5 +60,15 @@ Future<void> setupDependencyInjecion() async {
   // Cubits are singleton to preserve state
   getIt.registerSingleton<HeaderCubit>(HeaderCubit());
   getIt.registerSingleton<SidebarCubit>(SidebarCubit());
+
+  // Dashboard
+  // Orders
+  getIt.registerSingleton<OrdersRemoteDatasourceImp>(
+      OrdersRemoteDatasourceImp(firestore: getIt<FirebaseFirestore>()));
+  getIt.registerSingleton<OrdersRepoImp>(
+      OrdersRepoImp(remoteDatasource: getIt<OrdersRemoteDatasourceImp>()));
+  getIt.registerSingleton<OrdersCubit>(OrdersCubit());
+
+  // Products
   getIt.registerSingleton<ProductsCubit>(ProductsCubit());
 }

@@ -1,4 +1,5 @@
 import 'package:admin/core/constants/enums.dart';
+import 'package:admin/core/utils/helpers/helper_functions.dart';
 import 'package:admin/features/dashboard/domain/entities/address_entity.dart';
 import 'package:admin/features/dashboard/domain/entities/cart_item_model.dart';
 
@@ -24,4 +25,15 @@ class OrderEntity {
   final AddressEntity? address;
   final DateTime? deliveryDate;
   final List<CartItemEntity> items;
+
+  String get formattedOrderDate => UHelperFunctions.getFormattedDate(orderDate);
+  String get formattedDeliveryDate => deliveryDate != null
+      ? UHelperFunctions.getFormattedDate(deliveryDate!)
+      : '';
+
+  String get orderStatusText => status == OrderStatus.delivered
+      ? 'Delivered'
+      : status == OrderStatus.shipped
+          ? 'Shipment on the way'
+          : 'Processing';
 }

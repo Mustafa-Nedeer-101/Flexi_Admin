@@ -4,19 +4,6 @@ import 'package:intl/intl.dart';
 class UHelperFunctions {
   UHelperFunctions._();
 
-  // Size, Height, and Width of the Screen
-  static Size screenSize(BuildContext context) {
-    return MediaQuery.sizeOf(context);
-  }
-
-  static double screenHeight(BuildContext context) {
-    return MediaQuery.sizeOf(context).height;
-  }
-
-  static double screenWidth(BuildContext context) {
-    return MediaQuery.sizeOf(context).width;
-  }
-
   // Dark Mode
   static bool isDarkMode(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark;
@@ -70,5 +57,25 @@ class UHelperFunctions {
   static String getFormattedDate(DateTime date,
       {String format = 'dd MMM yyy'}) {
     return DateFormat(format).format(date);
+  }
+
+  // Return the date of Monday (start of week) given a date
+  static DateTime getStartOfWeek(DateTime date) {
+    final int daysUntilMonday = date.weekday - 1;
+    final DateTime startOfWeek = date.subtract(Duration(days: daysUntilMonday));
+
+    return DateTime(
+        startOfWeek.year, startOfWeek.month, startOfWeek.day, 1, 0, 0, 0, 0);
+  }
+
+  // Maximum of list of doubles
+  static maxOfDouble(List<double> list) {
+    double temp = 0.0;
+
+    for (double n in list) {
+      if (n > temp) temp = n;
+    }
+
+    return temp;
   }
 }

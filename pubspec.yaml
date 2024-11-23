@@ -54,6 +54,7 @@ flutter:
     - assets/images/content/
     - assets/images/content/user/
     - assets/images/content/products/
+    - assets/images/content/orders/
     - assets/images/animations/
     - assets/icons/payment_methods/
 

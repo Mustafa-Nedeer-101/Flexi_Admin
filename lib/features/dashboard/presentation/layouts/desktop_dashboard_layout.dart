@@ -1,6 +1,8 @@
 import 'package:admin/core/common/widgets/containers/rounded_container.dart';
 import 'package:admin/core/constants/sizes.dart';
+import 'package:admin/features/dashboard/presentation/widgets/bar_chart.dart';
 import 'package:admin/features/dashboard/presentation/widgets/card.dart';
+import 'package:admin/features/dashboard/presentation/widgets/dashboard_orders.dart';
 import 'package:flutter/material.dart';
 
 class DesktopDashboardLayout extends StatelessWidget {
@@ -56,12 +58,12 @@ class DesktopDashboardLayout extends StatelessWidget {
                   child: Column(
                     children: [
                       // Bar graph
-                      CustomRoundedContainer(),
+                      DashboardBarGraph(),
 
                       SizedBox(height: CSizes.spaceBtwSections),
 
                       // Orders
-                      CustomRoundedContainer()
+                      CustomRoundedContainer(child: DashboardOrders())
                     ],
                   ),
                 ),
