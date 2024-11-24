@@ -1,5 +1,8 @@
 import 'package:admin/core/constants/sizes.dart';
+import 'package:admin/features/dashboard/presentation/widgets/bar_chart.dart';
 import 'package:admin/features/dashboard/presentation/widgets/card.dart';
+import 'package:admin/features/dashboard/presentation/widgets/orders_table.dart';
+import 'package:admin/features/dashboard/presentation/widgets/pie_chart.dart';
 import 'package:flutter/material.dart';
 
 class MobileDashboardLayout extends StatelessWidget {
@@ -30,6 +33,19 @@ class MobileDashboardLayout extends StatelessWidget {
             const SizedBox(width: CSizes.spaceBtwItems),
             const CustomDashboardCard(
                 title: "Visitors", subTitle: "\$90.0", status: 245),
+
+            const SizedBox(height: CSizes.spaceBtwSections),
+
+            // Bar graph
+            const DashboardBarGraph(),
+            const SizedBox(height: CSizes.spaceBtwSections),
+
+            // Orders
+            const DashboardOrders(),
+            const SizedBox(width: CSizes.spaceBtwSections),
+
+            // Pie chart
+            const DashboardPieChart()
           ],
         ),
       ),

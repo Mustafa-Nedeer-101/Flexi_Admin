@@ -37,9 +37,9 @@ class DashboardBarGraph extends StatelessWidget {
 
                   // Graph
                   SizedBox(
-                    height: 300,
+                    height: 400,
                     child: BarChart(
-                      // data
+                      // Data
                       BarChartData(
                         titlesData: buildFlTitleData(interval.toDouble()),
                         borderData: FlBorderData(
@@ -79,7 +79,7 @@ class DashboardBarGraph extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               );
             case OrdersFailure():

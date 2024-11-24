@@ -1,8 +1,8 @@
-import 'package:admin/core/common/widgets/containers/rounded_container.dart';
 import 'package:admin/core/constants/sizes.dart';
 import 'package:admin/features/dashboard/presentation/widgets/bar_chart.dart';
 import 'package:admin/features/dashboard/presentation/widgets/card.dart';
-import 'package:admin/features/dashboard/presentation/widgets/dashboard_orders.dart';
+import 'package:admin/features/dashboard/presentation/widgets/orders_table.dart';
+import 'package:admin/features/dashboard/presentation/widgets/pie_chart.dart';
 import 'package:flutter/material.dart';
 
 class DesktopDashboardLayout extends StatelessWidget {
@@ -52,6 +52,7 @@ class DesktopDashboardLayout extends StatelessWidget {
 
             // Graphs
             const Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   flex: 2,
@@ -63,7 +64,7 @@ class DesktopDashboardLayout extends StatelessWidget {
                       SizedBox(height: CSizes.spaceBtwSections),
 
                       // Orders
-                      CustomRoundedContainer(child: DashboardOrders())
+                      DashboardOrders()
                     ],
                   ),
                 ),
@@ -71,7 +72,7 @@ class DesktopDashboardLayout extends StatelessWidget {
                 SizedBox(width: CSizes.spaceBtwSections),
 
                 // Pie chart
-                Expanded(child: CustomRoundedContainer())
+                Expanded(child: DashboardPieChart())
               ],
             )
           ],

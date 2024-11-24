@@ -18,4 +18,21 @@ class SHelpers {
         return Colors.grey;
     }
   }
+
+  static String getDisplayStatusName(OrderStatus status) {
+    switch (status) {
+      case OrderStatus.pending:
+        return 'Pending';
+      case OrderStatus.processing:
+        return 'Processing';
+      case OrderStatus.shipped:
+        return 'Shipped';
+      case OrderStatus.delivered:
+        return 'Delivered';
+      case OrderStatus.cancelled:
+        return 'Cancelled';
+      default:
+        return 'Unknown';
+    }
+  }
 }

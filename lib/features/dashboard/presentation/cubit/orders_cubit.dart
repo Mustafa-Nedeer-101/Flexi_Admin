@@ -1,3 +1,4 @@
+import 'package:admin/core/constants/enums.dart';
 import 'package:admin/core/service_locator/get_it.dart';
 import 'package:admin/core/utils/errors/failure.dart';
 import 'package:admin/core/utils/helpers/helper_functions.dart';
@@ -23,8 +24,10 @@ class OrdersCubit extends Cubit<OrdersState> {
       emit(OrdersFailure(failure: failure));
     }, (orders) {
       List<double> weeklySales = List.filled(7, 0.0);
+      Map<OrderStatus, int> orderStatusData = <OrderStatus, int>{};
+      Map<OrderStatus, double> totalAmounts = <OrderStatus, double>{};
 
-      // Update weekly sales
+      // Calculate Weekl Sales
       for (var order in orders) {
         final DateTime orderWeekStart =
             UHelperFunctions.getStartOfWeek(order.orderDate);
@@ -42,8 +45,24 @@ class OrdersCubit extends Cubit<OrdersState> {
         }
       }
 
+      // Calculate Order Status
+      orderStatusData.clear();
+      totalAmounts = {for (var status in OrderStatus.values) status: 0.0};
+      for (var order in orders) {
+        // Count Orders
+        final status = order.status;
+        orderStatusData[status] = (orderStatusData[status] ?? 0) + 1;
+
+        // Calculate total amounts for each status
+        totalAmounts[status] = (totalAmounts[status] ?? 0) + 1;
+      }
+
       // Emit Success
-      emit(OrdersSuccess(orders: orders, weeklySales: weeklySales));
+      emit(OrdersSuccess(
+          orders: orders,
+          weeklySales: weeklySales,
+          orderStatusData: orderStatusData,
+          totalAmounts: totalAmounts));
     });
   }
 }
