@@ -53,7 +53,8 @@ class DashboardBarGraph extends StatelessWidget {
                           show: true,
                           drawHorizontalLine: true,
                           drawVerticalLine: false,
-                          horizontalInterval: interval.toDouble(),
+                          horizontalInterval:
+                              interval > 0 ? interval.toDouble() : 200.0,
                         ),
                         barGroups: state.weeklySales
                             .asMap()
@@ -113,8 +114,10 @@ FlTitlesData buildFlTitleData(double interval) {
         ),
       ),
       leftTitles: AxisTitles(
-        sideTitles:
-            SideTitles(showTitles: true, interval: interval, reservedSize: 50),
+        sideTitles: SideTitles(
+            showTitles: true,
+            interval: interval > 0 ? interval : 200,
+            reservedSize: 50),
       ),
       rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
       topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)));
